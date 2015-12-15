@@ -1,4 +1,3 @@
-ADD_EXECUTABLE(test_opencv test_opencv.cpp)
 
 #ADD_LIBRARY(helloa SHARED ${SRC})
 
@@ -28,8 +27,11 @@ else(Boost_FOUND)
 	message(FATAL_ERROR "boost not found!")
 endif(Boost_FOUND)
 
-#ADD_EXECUTABLE( generatePointCloud.cpp)
+ADD_EXECUTABLE(test_opencv test_opencv.cpp)
 TARGET_LINK_LIBRARIES(test_opencv ${OpenCV_LIBS} ${Boost_SYSTEM_LIBRARY} ${Boost_FILESYSTEM_LIBRARY})
+
+ADD_EXECUTABLE(warpAffine warpAffine.cpp)
+TARGET_LINK_LIBRARIES(warpAffine ${OpenCV_LIBS} ${Boost_SYSTEM_LIBRARY} ${Boost_FILESYSTEM_LIBRARY})
 
 
 	

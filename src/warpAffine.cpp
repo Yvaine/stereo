@@ -16,7 +16,21 @@ using namespace cv;
 
 int main(int argc, char **argv)
 {
-	Mat img = imread()
+	Mat im = imread("../data/data1/image.jpg");
+	Mat im_transformed;
+	imshow("Original", im);
 
+	int rotation_degrees = 30;
+	Mat M = getRotationMatrix2D(Point(im.cols / 2, im.rows / 2), rotation_degrees,1);
 
+	cout << M << endl;
+
+	warpAffine(im, im_transformed, M, im.size(), INTER_LINEAR);
+
+	imshow("Transformed", im_transformed);
+
+    while(char(waitKey(1) != 'q')) {
+
+	}
+	return 0;
 }
